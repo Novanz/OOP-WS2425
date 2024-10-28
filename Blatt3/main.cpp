@@ -28,11 +28,7 @@ namespace nan {
     }
 
     void test_sort(int *numbers, int size) {
-        std::cout << "not sorted" << std::endl;
-        print_int_arr(numbers, size);
         sort(numbers, size);
-        std::cout << "sorted" << std::endl;
-        print_int_arr(numbers, size);
         for (int i = 1; i < size; i++) {
             assert(numbers[i - 1] <= numbers[i]);
         }
@@ -62,11 +58,7 @@ namespace nan {
     }
 
     void test_sort_position(Position *position, int size) {
-        std::cout << "not sorted" << std::endl;
-        print_position_arr(position,size);
         sort_position(position, size);
-        std::cout << "sorted" << std::endl;
-        print_position_arr(position,size);
         for (int i = 1; i < size; i++) {
             assert(position[i - 1].compare(position[i])<= 0);
         }
