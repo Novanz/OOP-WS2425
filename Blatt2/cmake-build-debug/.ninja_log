@@ -1,0 +1,17 @@
+# ninja log v6
+9	396	1729064355209219049	CMakeFiles/Blatt2.dir/src/Position.cpp.o	22abac441ee4d080
+3	556	1729064355201219133	CMakeFiles/Blatt2.dir/main.cpp.o	6fe00fa71fe41658
+2	1519	1729064238162404616	CMakeFiles/Position_Test.dir/test/Position_Test.cpp.o	50c927e4d757ff6d
+7	706	1729062160980283622	CMakeFiles/Blatt2.dir/test/Position_Test.cpp.o	1435bfd9abec293c
+2	437	1729064238162404616	CMakeFiles/Position_Test.dir/src/Position.cpp.o	2672edadaa438f2b
+1519	1666	1729064239678389583	Position_Test	2dd368ebef1f1d31
+556	644	1729064355753213328	Blatt2	64d430ed3eda07d
+2	107	1729064403176715793	Blatt2	2058714fe0d2885d
+2	1789	1729064531463380413	CMakeFiles/Position_Test.dir/test/Position_Test.cpp.o	50c927e4d757ff6d
+1789	1936	1729064533251361898	Position_Test	2dd368ebef1f1d31
+1	1446	1729064572778953162	CMakeFiles/Position_Test.dir/test/Position_Test.cpp.o	50c927e4d757ff6d
+1446	1590	1729064574226938211	Position_Test	2dd368ebef1f1d31
+2	1465	1729064728489292169	CMakeFiles/Position_Test.dir/test/Position_Test.cpp.o	50c927e4d757ff6d
+1465	1610	1729064729953276589	Position_Test	2dd368ebef1f1d31
+2	1465	1729064816024363024	CMakeFiles/Position_Test.dir/test/Position_Test.cpp.o	50c927e4d757ff6d
+1465	1607	1729064817488347525	Position_Test	2dd368ebef1f1d31

@@ -1,0 +1,4 @@
+/home/nan/CLionProjects/OOP/Blatt3/cmake-build-debug/CMakeFiles/Blatt3.dir
+/home/nan/CLionProjects/OOP/Blatt3/cmake-build-debug/CMakeFiles/Position_Test.dir
+/home/nan/CLionProjects/OOP/Blatt3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/nan/CLionProjects/OOP/Blatt3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
