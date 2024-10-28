@@ -42,7 +42,7 @@ int nan::Position::compare(nan::Position other) {
 
 nan::Position::Position(const std::string &mName, int mX, int mY) : m_name(mName), m_x(mX), m_y(mY) {}
 
-//nan::Position::Position() {}
+nan::Position::Position() {}
 
 nan::Position::~Position() {}
 

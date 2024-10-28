@@ -16,7 +16,7 @@ namespace nan {
 
     public:
         Position(const std::string &mName, int mX, int mY);
-        //Position();
+        Position();
         ~Position();
         const std::string &getName() const;
         int getX() const;
