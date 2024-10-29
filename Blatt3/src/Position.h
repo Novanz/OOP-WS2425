@@ -16,14 +16,10 @@ namespace nan {
 
     public:
         Position(const std::string &mName, int mX, int mY);
-        Position();
-        ~Position();
         const std::string &getName() const;
         int getX() const;
         int getY() const;
-        // TODO: Wo schreibt man Doku zu Methode? Hier oder in .h?
-        int compare(Position other);
-        std::string to_string();
+        int compare(const Position& other) const;
     };
 
 }

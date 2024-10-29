@@ -9,12 +9,6 @@ namespace nan {
         }
     }
 
-    void print_position_arr(Position* arr, int size) {
-        for (int i = 0; i < size; ++i) {
-            std::cout << arr[i].to_string() << std::endl;
-        }
-    }
-
     void sort(int *numbers, int size) {
         for (int i = 1; i < size; ++i) {
             int key = numbers[i];
@@ -64,13 +58,8 @@ namespace nan {
         }
     }
     void test_sort_position() {
-        auto *test_array = new Position[5];
-        std::string name[5] = {"a", "b", "c", "d", "e"};
-        for (int i = 0; i < 5; i++) {
-                test_array[i] = Position(name[1], ((std::rand() % 100) + 1), ((std::rand() % 100) + 1));
-        }
-        test_sort_position(test_array, 5);
-        delete[] test_array;
+        Position test_array[3] = {Position("a",1,2), Position("a",6,2), Position("z",1,3)};
+        test_sort_position(test_array, 3);
     }
 }// namespace nan
 

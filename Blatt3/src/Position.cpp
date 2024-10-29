@@ -18,7 +18,7 @@ const std::string &nan::Position::getName() const {
 // 0 == equals( all members have same value),
 // 1 == this.name lexicographically > other.name || any of this.x/y > other.x/y,
 // -1 ==  this.name lexicographically < other.name || any of this.x/y < other.x/y
-int nan::Position::compare(nan::Position other) {
+int nan::Position::compare(const nan::Position& other) const {
     if (m_name < other.m_name) {
         return -1;
     } else if (m_name > other.m_name) {
@@ -42,14 +42,3 @@ int nan::Position::compare(nan::Position other) {
 
 nan::Position::Position(const std::string &mName, int mX, int mY) : m_name(mName), m_x(mX), m_y(mY) {}
 
-nan::Position::Position() {}
-
-nan::Position::~Position() {}
-
-std::string nan::Position::to_string() {
-    return "("
-           + this->getName() + ", "
-           + std::to_string(this->getX()) + ", "
-           + std::to_string(this->getY()) +
-           ")";
-}
