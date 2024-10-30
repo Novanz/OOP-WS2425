@@ -20,7 +20,7 @@ int nan::City::getX() const {
 int nan::City::getY() const {
     return m_position.getY();
 }
-std::string nan::City::getPOI(int i) const {
+const std::string &nan::City::getPOI(int i) const {
     if (i < 0 || i >= m_number_of_pois) {
         throw std::out_of_range("Array index out of bounds");
     }

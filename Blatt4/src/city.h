@@ -27,7 +27,7 @@ namespace nan {
         int getX() const;
         int getY() const;
         // jede Stadt hat Sehenswürdigkeiten (Points of Interest), auf die man zugreifen kann
-        std::string getPOI(int i) const;
+        const std::string &getPOI(int i) const;
         // jede Stadt hat Sehenswürdigkeiten (Points of Interest), die man ändern kann
         void setPOI(int i, const std::string &poi);
         // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
