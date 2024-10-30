@@ -4,14 +4,14 @@
 
 #include "city.h"
 #include "Position.h"
-#include <string>
 #include <stdexcept>
+#include <string>
 
 
 nan::City::City(const nan::Position &mPosition, std::string *mPOIs, int mNumberOfPOIs)
     : m_position(mPosition), m_number_of_pois(mNumberOfPOIs), m_pois(make_copy(mPOIs, mNumberOfPOIs)) {}
 
-const std::string &nan::City::getName() const  {
+const std::string &nan::City::getName() const {
     return m_position.getName();
 }
 int nan::City::getX() const {

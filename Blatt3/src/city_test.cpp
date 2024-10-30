@@ -26,7 +26,6 @@ void testCtor() {
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
     nan::City city(position, pois, 3);
     pois[0] = "Gandalf";
-    std::cout << pois[0] << std::endl;
     assert(city.getPOI(0) == "Sauron");
 }
 
