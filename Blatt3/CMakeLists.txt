@@ -10,6 +10,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wex
 add_executable(Blatt3  src/Position.cpp src/Position.h
         src/city.cpp
         src/city.h
+        src/city_test.cpp
 )
 
 # GTest
