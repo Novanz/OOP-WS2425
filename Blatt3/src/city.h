@@ -11,8 +11,15 @@ namespace nan {
     class City {
         private:
             nan::Position m_position;
-            std::string *m_pois;
             int m_number_of_pois;
+            std::string *m_pois;
+            static std::string *make_copy(const std::string *source_array, int size){
+                auto *result = new std::string [size];
+                for (int i = 0; i < size; i++) {
+                    result[i] = source_array[i];
+                }
+                return result;
+            }
         public:
             City(const Position &mPosition, std::string* mPOIs, int mNumberOfPOIs);
             const std::string &getName() const;
