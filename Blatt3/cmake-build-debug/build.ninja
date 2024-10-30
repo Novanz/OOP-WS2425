@@ -49,14 +49,20 @@ cmake_ninja_workdir = /home/nan/CLionProjects/OOP/Blatt3/cmake-build-debug/
 
 build cmake_object_order_depends_target_Blatt3: phony || .
 
-build CMakeFiles/Blatt3.dir/main.cpp.o: CXX_COMPILER__Blatt3_unscanned_Debug /home/nan/CLionProjects/OOP/Blatt3/main.cpp || cmake_object_order_depends_target_Blatt3
-  DEP_FILE = CMakeFiles/Blatt3.dir/main.cpp.o.d
-  FLAGS = -Wall -Wextra -g -std=gnu++14 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/Blatt3.dir
-  OBJECT_FILE_DIR = CMakeFiles/Blatt3.dir
-
 build CMakeFiles/Blatt3.dir/src/Position.cpp.o: CXX_COMPILER__Blatt3_unscanned_Debug /home/nan/CLionProjects/OOP/Blatt3/src/Position.cpp || cmake_object_order_depends_target_Blatt3
   DEP_FILE = CMakeFiles/Blatt3.dir/src/Position.cpp.o.d
+  FLAGS = -Wall -Wextra -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Blatt3.dir
+  OBJECT_FILE_DIR = CMakeFiles/Blatt3.dir/src
+
+build CMakeFiles/Blatt3.dir/src/city.cpp.o: CXX_COMPILER__Blatt3_unscanned_Debug /home/nan/CLionProjects/OOP/Blatt3/src/city.cpp || cmake_object_order_depends_target_Blatt3
+  DEP_FILE = CMakeFiles/Blatt3.dir/src/city.cpp.o.d
+  FLAGS = -Wall -Wextra -g -std=gnu++14 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/Blatt3.dir
+  OBJECT_FILE_DIR = CMakeFiles/Blatt3.dir/src
+
+build CMakeFiles/Blatt3.dir/src/city_test.cpp.o: CXX_COMPILER__Blatt3_unscanned_Debug /home/nan/CLionProjects/OOP/Blatt3/src/city_test.cpp || cmake_object_order_depends_target_Blatt3
+  DEP_FILE = CMakeFiles/Blatt3.dir/src/city_test.cpp.o.d
   FLAGS = -Wall -Wextra -g -std=gnu++14 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/Blatt3.dir
   OBJECT_FILE_DIR = CMakeFiles/Blatt3.dir/src
@@ -69,7 +75,7 @@ build CMakeFiles/Blatt3.dir/src/Position.cpp.o: CXX_COMPILER__Blatt3_unscanned_D
 #############################################
 # Link the executable Blatt3
 
-build Blatt3: CXX_EXECUTABLE_LINKER__Blatt3_Debug CMakeFiles/Blatt3.dir/main.cpp.o CMakeFiles/Blatt3.dir/src/Position.cpp.o
+build Blatt3: CXX_EXECUTABLE_LINKER__Blatt3_Debug CMakeFiles/Blatt3.dir/src/Position.cpp.o CMakeFiles/Blatt3.dir/src/city.cpp.o CMakeFiles/Blatt3.dir/src/city_test.cpp.o
   FLAGS = -Wall -Wextra -g
   OBJECT_DIR = CMakeFiles/Blatt3.dir
   POST_BUILD = :
