@@ -5,12 +5,12 @@
 #ifndef BLATT3_CITY_H
 #define BLATT3_CITY_H
 
-#include "position.h"
+#include "Position.h"
 namespace nan {
 
     class City {
     private:
-        nan::position m_position;
+        nan::Position m_position;
         int m_number_of_pois;
         std::string *m_pois;
         static std::string *make_copy(const std::string *source_array, int size) {
@@ -21,8 +21,10 @@ namespace nan {
             return result;
         }
 
+        City(const Position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
+
     public:
-        City(const position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
+        City(const std::string& name, int x, int y, std::string *pois, int length);
         const std::string &getName() const;
         int getX() const;
         int getY() const;
@@ -32,6 +34,7 @@ namespace nan {
         void setPOI(int i, const std::string &poi);
         // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
         int getNumberOfPOIs() const;
+        void isValidIndex(int i) const;
     };
 
 }// namespace nan

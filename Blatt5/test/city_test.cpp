@@ -2,36 +2,36 @@
 // Created by nan on 10/29/24.
 //
 
-#include "../src/position.h"
-#include "../src/city.h"
+#include "../src/Position.h"
+#include "../src/City.h"
 #include <cassert>
 #include <iostream>
 #include <string>
 
-nan::position createPosition() {
+nan::Position createPosition() {
     std::string mordor = "Mordor";
-    nan::position result(mordor, 47, 11);
+    nan::Position result(mordor, 47, 11);
     return result;
 }
 
 nan::City createCity() {
     auto position = createPosition();
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
-    nan::City result(position, pois, 3);
+    nan::City result("Mordor", 47, 11, pois, 3);
     return result;
 }
 
 void testCtor() {
     auto position = createPosition();
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
-    nan::City city(position, pois, 3);
+    nan::City city("Mordor", 47, 11, pois, 3);
     pois[0] = "Gandalf";
     assert(city.getPOI(0) == "Sauron");
 }
 
 void testGetNameXY() {
     auto position = createPosition();
-    nan::City city(position, nullptr, 0);
+    nan::City city("Mordor", 47, 11, nullptr, 0);
     assert(city.getName() == "Mordor");
     assert(city.getX() == 47);
     assert(city.getY() == 11);
@@ -73,6 +73,13 @@ void testGetNumberOfPOIs() {
     assert(city.getNumberOfPOIs() == 3);
 }
 
+void testCityPublicCtor() {
+    std::string pois[]={"Sauron", "Minas Morgul", "Orodruin"};
+    nan::City mordor("Mordor", 47, 11, pois, 3);
+    auto copy = mordor;
+    mordor.setPOI(2,"Cirith Ungol");
+    assert(copy.getPOI(2)=="Orodruin");
+}
 
 void testCity() {
     testCtor();
@@ -80,6 +87,7 @@ void testCity() {
     testGetPOI();
     testSetPOI();
     testGetNumberOfPOIs();
+    //testCityPublicCtor();
 }
 
 int main() {

@@ -8,18 +8,19 @@
 #include <string>
 
 namespace nan {
-    class position {
+    class Position {
     private:
         std::string m_name;
         int m_x;
         int m_y;
 
     public:
-        position(const std::string &mName, int mX, int mY);
+        Position(const std::string &mName, int mX, int mY);
+        Position(const Position &other);
         const std::string &getName() const;
         int getX() const;
         int getY() const;
-        int compare(const position& other) const;
+        int compare(const Position& other) const;
     };
 
 }

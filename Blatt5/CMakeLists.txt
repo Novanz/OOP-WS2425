@@ -7,9 +7,9 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wextra" )
 
 # Main
-add_executable(Blatt5 src/position.cpp src/position.h
-        src/city.cpp
-        src/city.h
+add_executable(Blatt5 src/Position.cpp src/Position.h
+        src/City.cpp
+        src/City.h
         test/city_test.cpp
 )
 

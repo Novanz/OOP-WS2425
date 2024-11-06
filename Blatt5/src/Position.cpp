@@ -1,16 +1,16 @@
 //
 // Created by nan on 10/15/24.
 //
-#include "position.h"
+#include "Position.h"
 
 
-int nan::position::getY() const {
+int nan::Position::getY() const {
     return m_y;
 }
-int nan::position::getX() const {
+int nan::Position::getX() const {
     return m_x;
 }
-const std::string &nan::position::getName() const {
+const std::string &nan::Position::getName() const {
     return m_name;
 }
 
@@ -18,7 +18,7 @@ const std::string &nan::position::getName() const {
 // 0 == equals( all members have same value),
 // 1 == this.name lexicographically > other.name || any of this.x/y > other.x/y,
 // -1 ==  this.name lexicographically < other.name || any of this.x/y < other.x/y
-int nan::position::compare(const nan::position& other) const {
+int nan::Position::compare(const nan::Position& other) const {
     if (m_name < other.m_name) {
         return -1;
     } else if (m_name > other.m_name) {
@@ -40,5 +40,7 @@ int nan::position::compare(const nan::position& other) const {
     return 0;
 }
 
-nan::position::position(const std::string &mName, int mX, int mY) : m_name(mName), m_x(mX), m_y(mY) {}
+nan::Position::Position(const std::string &mName, int mX, int mY) : m_name(mName), m_x(mX), m_y(mY) {}
+
+nan::Position::Position(const Position &other) : Position(other.getName(), other.getX(), other.getY()){}
 
