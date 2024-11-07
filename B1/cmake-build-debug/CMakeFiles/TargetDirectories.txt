@@ -1,3 +1,0 @@
-/home/nan/CLionProjects/OOP/B1/cmake-build-debug/CMakeFiles/B1.dir
-/home/nan/CLionProjects/OOP/B1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/nan/CLionProjects/OOP/B1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
