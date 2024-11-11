@@ -25,6 +25,8 @@ namespace nan {
 
     public:
         City(const std::string& name, int x, int y, std::string *pois, int length);
+        City(const nan::City &other);
+        ~City();
         const std::string &getName() const;
         int getX() const;
         int getY() const;

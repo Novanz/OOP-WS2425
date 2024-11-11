@@ -14,6 +14,13 @@ nan::City::City(const nan::Position &mPosition, std::string *mPOIs, int mNumberO
 nan::City::City(const std::string &name, int x, int y, std::string *pois, int length)
                 : m_position(name, x, y), m_number_of_pois(length), m_pois(make_copy(pois, length)) {}
 
+nan::City::City(const nan::City &other)
+    : m_position(other.m_position), m_number_of_pois(other.m_number_of_pois), m_pois(make_copy(other.m_pois, other.m_number_of_pois)) {}
+
+nan::City::~City() {
+    delete[] m_pois;
+}
+
 const std::string &nan::City::getName() const {
     return m_position.getName();
 }

@@ -87,7 +87,7 @@ void testCity() {
     testGetPOI();
     testSetPOI();
     testGetNumberOfPOIs();
-    //testCityPublicCtor();
+    testCityPublicCtor();
 }
 
 int main() {
