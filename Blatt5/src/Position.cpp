@@ -42,5 +42,4 @@ int nan::Position::compare(const nan::Position& other) const {
 
 nan::Position::Position(const std::string &mName, int mX, int mY) : m_name(mName), m_x(mX), m_y(mY) {}
 
-nan::Position::Position(const Position &other) : Position(other.getName(), other.getX(), other.getY()){}
 
