@@ -73,7 +73,7 @@ void testGetNumberOfPOIs() {
     assert(city.getNumberOfPOIs() == 3);
 }
 
-void testCityPublicCtor() {
+void testCityCopyCtor() {
     std::string pois[]={"Sauron", "Minas Morgul", "Orodruin"};
     nan::City mordor("Mordor", 47, 11, pois, 3);
     auto copy = mordor;
@@ -87,7 +87,7 @@ void testCity() {
     testGetPOI();
     testSetPOI();
     testGetNumberOfPOIs();
-    testCityPublicCtor();
+    testCityCopyCtor();
 }
 
 int main() {
