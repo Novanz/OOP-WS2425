@@ -22,6 +22,7 @@ namespace nan {
         }
 
         City(const Position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
+        void isValidIndex(int i) const;
 
     public:
         City(const std::string& name, int x, int y, std::string *pois, int length);
@@ -36,7 +37,6 @@ namespace nan {
         void setPOI(int i, const std::string &poi);
         // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
         int getNumberOfPOIs() const;
-        void isValidIndex(int i) const;
     };
 
 }// namespace nan
