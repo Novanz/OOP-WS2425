@@ -12,10 +12,10 @@ nan::City::City(const nan::Position &mPosition, std::string *mPOIs, int mNumberO
     : m_position(mPosition), m_number_of_pois(mNumberOfPOIs), m_pois(make_copy(mPOIs, mNumberOfPOIs)) {}
 
 nan::City::City(const std::string &name, int x, int y, std::string *pois, int length)
-                : m_position(name, x, y), m_number_of_pois(length), m_pois(make_copy(pois, length)) {}
+    : City(Position(name, x, y),pois, length){}
 
 nan::City::City(const nan::City &other)
-    : City(other.m_position, make_copy(other.m_pois, other.m_number_of_pois), other.m_number_of_pois) {}
+    : City(other.m_position, other.m_pois, other.m_number_of_pois){}
 
 nan::City::~City() {
     delete[] m_pois;
