@@ -36,6 +36,18 @@ void nan::City::isValidIndex(int i) const {
         throw std::out_of_range("Array index out of bounds");
     }
 }
+
+void nan::City::addPOI(const std::string &poi) {
+    auto *new_pois = new std::string[m_number_of_pois + 1];
+    for (int i = 0; i < m_number_of_pois; i++) {
+        new_pois[i] = m_pois[i];
+    }
+    new_pois[m_number_of_pois] = poi;
+    delete[] m_pois;
+    m_pois = new_pois;
+    m_number_of_pois++;
+}
+
 const std::string &nan::City::getPOI(int i) const {
     isValidIndex(i);
     return m_pois[i];

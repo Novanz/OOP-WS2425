@@ -42,6 +42,8 @@ namespace nan {
         // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
         int getNumberOfPOIs() const;
         void isValidIndex(int i) const;
+        void addPOI(const std::string &poi);
+        bool removePOI(const std::string &poi);
     };
 
 }// namespace nan
