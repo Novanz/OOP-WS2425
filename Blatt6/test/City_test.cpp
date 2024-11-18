@@ -81,6 +81,17 @@ void testCityCopyCtor() {
     assert(copy.getPOI(2)=="Orodruin");
 }
 
+void testCityCtorAgainstNullptr() {
+    nan::City city("Mordor", 47, 11, nullptr, 0);
+    assert(city.getNumberOfPOIs()==0);
+    try {
+        nan::City city("Mordor", 47, 11, nullptr, 23);
+        assert(false);
+    } catch (...) {}
+    nan::City empty("Mordor", 47, 11);
+    assert(empty.getNumberOfPOIs()==0);
+}
+
 void testCity() {
     testCtor();
     testGetNameXY();
@@ -88,6 +99,7 @@ void testCity() {
     testSetPOI();
     testGetNumberOfPOIs();
     testCityCopyCtor();
+    testCityCtorAgainstNullptr();
 }
 
 int main() {
