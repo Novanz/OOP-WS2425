@@ -8,6 +8,8 @@
 #include <string>
 
 
+
+
 nan::City::City(const nan::Position &mPosition, std::string *mPOIs, int mNumberOfPOIs)
     : m_position(mPosition), m_number_of_pois(mNumberOfPOIs), m_pois(make_copy(mPOIs, mNumberOfPOIs)) {}
 
@@ -37,16 +39,7 @@ void nan::City::isValidIndex(int i) const {
     }
 }
 
-void nan::City::addPOI(const std::string &poi) {
-    auto *new_pois = new std::string[m_number_of_pois + 1];
-    for (int i = 0; i < m_number_of_pois; i++) {
-        new_pois[i] = m_pois[i];
-    }
-    new_pois[m_number_of_pois] = poi;
-    delete[] m_pois;
-    m_pois = new_pois;
-    m_number_of_pois++;
-}
+
 
 const std::string &nan::City::getPOI(int i) const {
     isValidIndex(i);
@@ -60,3 +53,43 @@ int nan::City::getNumberOfPOIs() const {
     return m_number_of_pois;
 }
 
+void nan::City::addPOI(const std::string &poi) {
+    auto *new_pois = new std::string[m_number_of_pois + 1];
+    for (int i = 0; i < m_number_of_pois; i++) {
+        new_pois[i] = m_pois[i];
+    }
+    new_pois[m_number_of_pois] = poi;
+    delete[] m_pois;
+    // TODO: Frage: muss ich m_pois auf nullptr setzen? oder reicht hier delete[] m_pois da wir es ja gleich neu initialisieren?
+    m_pois = new_pois;
+    m_number_of_pois++;
+}
+
+int nan::City::findAndCountPOI(const std::string &poi) const {
+    int count = 0;
+    for (int i = 0; i < m_number_of_pois; i++) {
+        if (m_pois[i] == poi) {
+            count++;
+        }
+    }
+    return count;
+}
+
+bool nan::City::removePOI(const std::string &poi) {
+    int number_of_occurrences = findAndCountPOI(poi);
+    if (number_of_occurrences == 0) {
+        return false;
+    }
+    auto *new_pois = new std::string[m_number_of_pois - number_of_occurrences];
+    int j = 0;
+    for (int i = 0; i < m_number_of_pois; i++) {
+        if (m_pois[i] != poi) {
+            new_pois[j] = m_pois[i];
+            j++;
+        }
+    }
+    delete[] m_pois;
+    m_pois = new_pois;
+    m_number_of_pois -= number_of_occurrences;
+    return true;
+}

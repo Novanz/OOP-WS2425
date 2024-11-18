@@ -26,6 +26,9 @@ namespace nan {
             return result;
         }
 
+        // Method to find number of POI occurrences
+        int findAndCountPOI(const std::string &poi) const;
+
         City(const Position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
 
     public:

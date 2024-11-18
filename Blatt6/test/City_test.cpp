@@ -103,6 +103,24 @@ void testCityAddPOI() {
     assert(empty.getNumberOfPOIs()==1);
     assert(empty.getPOI(0)=="Orodruin");
 }
+
+void testRemovePOI() {
+    std::string pois[]={"Sauron", "Minas Morgul", "Orodruin"};
+    nan::City city("Mordor", 47, 11, pois, 3);
+    nan::City copy1=city;
+    assert(true==copy1.removePOI("Orodruin"));
+    assert(copy1.getNumberOfPOIs()==2);
+    assert(false== copy1.removePOI("Shire"));
+    nan::City copy2=city;
+    assert(true==copy2.removePOI("Sauron"));
+    assert(copy2.getNumberOfPOIs()==2);
+    assert(copy2.getPOI(0)=="Minas Morgul");
+    std::string saurons[]={"Sauron","Sauron","Sauron"};
+    nan::City same("Mordor", 47, 11, saurons, 3);
+    assert(true==same.removePOI("Sauron"));
+    assert(same.getNumberOfPOIs()==0);
+}
+
 void testCity() {
     testCtor();
     testGetNameXY();
@@ -112,6 +130,7 @@ void testCity() {
     testCityCopyCtor();
     testCityCtorAgainstNullptr();
     testCityAddPOI();
+    testRemovePOI();
 }
 
 int main() {
