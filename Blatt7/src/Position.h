@@ -29,7 +29,7 @@ namespace nan {
         //      • Use the defaulted operator== for equality comparisons
         //      • Generate != as the logical opposite of ==
 
-        auto operator<=>(const Position& other) const ;
+        std::strong_ordering operator<=>(const Position& other) const;
         bool operator==(const Position& other) const = default;
     };
 
