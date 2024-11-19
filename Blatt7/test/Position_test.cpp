@@ -8,7 +8,6 @@
 //
 
 
-
 void testCtor() {
     std::string mordor = "Mordor";
     nan::Position position(mordor, 47, 11);
@@ -39,29 +38,26 @@ void testCompare() {
     assert(position_y > position);
 }
 
-void testPositionSorter(nan::Position  *position, int size) {
+void testPositionSorter(nan::Position *position, int size) {
     nan::PositionSorter::sortPositions(position, size);
-    for (int i = 1; i < size; i++) {
-        assert((position[i - 1] <= position[i]));
-    }
+    for (int i = 1; i < size; i++) { assert((position[i - 1] <= position[i])); }
 }
 
 void testSortPositions() {
-        nan::Position test_array[3] =
-            {nan::Position("a",1,2),
-            nan::Position("a",6,2),
-            nan::Position("z",1,3)};
-        testPositionSorter(test_array, 3);
+    nan::Position test_array[3] =
+    {nan::Position("a", 1, 2),
+     nan::Position("a", 6, 2),
+     nan::Position("z", 1, 3)};
+    testPositionSorter(test_array, 3);
 }
 
-int main()
-{
-    std::cout<<"starting tests..."<<std::endl;
+int main() {
+    std::cout << "starting tests..." << std::endl;
 
     testCtor();
     testCtorIntegrity();
     testCompare();
     testSortPositions();
 
-    std::cout<<"...finished"<<std::endl;
+    std::cout << "...finished" << std::endl;
 }

@@ -28,7 +28,7 @@ namespace nan {
         int findAndCountPOI(const std::string &poi) const;
 
         // Helper method to print City
-        static std::string printPOIS(const City &city) ;
+        static std::string printPOIS(const City &city);
 
         City(const Position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
 
@@ -48,7 +48,7 @@ namespace nan {
         void isValidIndex(int i) const;
         void addPOI(const std::string &poi);
         bool removePOI(const std::string &poi);
-        friend std::ostream& operator<<(std::ostream& os, const City& city);
+        friend std::ostream &operator<<(std::ostream &os, const City &city);
     };
 
 }// namespace nan

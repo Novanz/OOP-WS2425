@@ -11,7 +11,7 @@
 namespace nan {
     class PositionSorter {
     public:
-        static void sortPositions(Position* positions, int size) {
+        static void sortPositions(Position *positions, int size) {
             for (int i = 0; i < size; i++) {
                 for (int j = i + 1; j < size; j++) {
                     if (positions[i] > positions[j]) {

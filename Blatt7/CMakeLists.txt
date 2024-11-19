@@ -4,7 +4,7 @@ project(Blatt7)
 set(CMAKE_CXX_STANDARD 20)
 
 #set(GCC_COVERAGE_COMPILE_FLAGS "-lgtest -lgtest_main -pthread")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wextra" )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wextra")
 
 # Main
 add_executable(Blatt7 src/Position.cpp src/Position.h

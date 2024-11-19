@@ -76,13 +76,11 @@ bool nan::City::removePOI(const std::string &poi) {
 
 std::string nan::City::printPOIS(const nan::City &city) {
     std::string result;
-    for (int i = 0; i < city.getNumberOfPOIs(); i++) {
-        result += city.getPOI(i) + "\n";
-    }
+    for (int i = 0; i < city.getNumberOfPOIs(); i++) { result += city.getPOI(i) + "\n"; }
     return result;
 }
 
-std::ostream & nan::operator<<(std::ostream &os, const City &city) {
+std::ostream &nan::operator<<(std::ostream &os, const City &city) {
     os << city.m_position << nan::City::printPOIS(city) << std::endl;
     return os;
 }

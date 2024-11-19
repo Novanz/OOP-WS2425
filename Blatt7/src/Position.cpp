@@ -26,10 +26,10 @@ int nan::Position::compare(const nan::Position &other) const {
     return 0;
 }
 
-std::ostream & nan::operator<<(std::ostream &os, const Position &position) {
+std::ostream &nan::operator<<(std::ostream &os, const Position &position) {
     os
-        << "Name: " << position.getName() << ", "
-        << "x = " << position.getX() << ", "
-        << "y = " << position.getY() << std::endl;
+            << "Name: " << position.getName() << ", "
+            << "x = " << position.getX() << ", "
+            << "y = " << position.getY() << std::endl;
     return os;
 }

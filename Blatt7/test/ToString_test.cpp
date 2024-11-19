@@ -27,13 +27,13 @@ void testCity() {
     auto city = createCity();
     std::cout << city << std::endl;
 }
-int main()
-{
-    std::cout<<"starting tests..."<<std::endl;
-    std::cout<<"print Position..."<<std::endl;
+
+int main() {
+    std::cout << "starting tests..." << std::endl;
+    std::cout << "print Position..." << std::endl;
 
     testPosition();
-    std::cout<<"print City..."<<std::endl;
+    std::cout << "print City..." << std::endl;
     testCity();
-    std::cout<<"...finished"<<std::endl;
+    std::cout << "...finished" << std::endl;
 }

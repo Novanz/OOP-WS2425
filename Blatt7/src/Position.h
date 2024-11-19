@@ -31,9 +31,9 @@ namespace nan {
         //      • Generate != as the logical opposite of ==
 
         auto operator<=>(const Position &other) const = default;
-        bool operator==(const Position& other) const = default;
+        bool operator==(const Position &other) const = default;
 
-        friend std::ostream& operator<<(std::ostream& os, const Position& position);
+        friend std::ostream &operator<<(std::ostream &os, const Position &position);
     };
 
 }
