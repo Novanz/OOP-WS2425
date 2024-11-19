@@ -11,6 +11,7 @@ add_executable(Blatt7 src/Position.cpp src/Position.h
         src/City.cpp
         src/City.h
         test/City_test.cpp
+        src/PositionSorter.h
 )
 
 # GTest
