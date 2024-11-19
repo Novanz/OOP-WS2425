@@ -6,6 +6,7 @@
 #define BLATT2_POSITION_H
 
 #include <string>
+#include <compare>
 
 namespace nan {
     class Position {
@@ -14,12 +15,22 @@ namespace nan {
         int m_x;
         int m_y;
 
+        int compare(const Position &other) const;
+
     public:
         Position(const std::string &mName, int mX, int mY);
         const std::string &getName() const;
         int getX() const;
         int getY() const;
-        int compare(const Position& other) const;
+
+        // Spaceship operator:
+        // When you provide the spaceship operator, the compiler will:
+        //      • Use operator<=> to implement <, >, <=, and >=
+        //      • Use the defaulted operator== for equality comparisons
+        //      • Generate != as the logical opposite of ==
+
+        auto operator<=>(const Position& other) const ;
+        bool operator==(const Position& other) const = default;
     };
 
 }
