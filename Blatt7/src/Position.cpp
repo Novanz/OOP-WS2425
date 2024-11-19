@@ -26,7 +26,7 @@ int nan::Position::compare(const nan::Position &other) const {
     return 0;
 }
 
-auto nan::Position::operator<=>(const Position &other) const {
+auto nan::Position::operator<=>(const Position &other) const{
         int result = compare(other);
         if (result < 0) return std::strong_ordering::less;
         if (result > 0) return std::strong_ordering::greater;
