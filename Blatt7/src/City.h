@@ -7,6 +7,7 @@
 
 #include "Position.h"
 #include <stdexcept>
+#include <ostream>
 
 namespace nan {
 
@@ -26,6 +27,9 @@ namespace nan {
         // Method to find number of POI occurrences
         int findAndCountPOI(const std::string &poi) const;
 
+        // Helper method to print City
+        static std::string printPOIS(const City &city) ;
+
         City(const Position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
 
     public:
@@ -44,6 +48,7 @@ namespace nan {
         void isValidIndex(int i) const;
         void addPOI(const std::string &poi);
         bool removePOI(const std::string &poi);
+        friend std::ostream& operator<<(std::ostream& os, const City& city);
     };
 
 }// namespace nan

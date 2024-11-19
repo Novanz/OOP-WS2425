@@ -2,18 +2,16 @@
 #include <cassert>
 #include <iostream>
 
+
 //
 // Created by nan on 19.11.24.
 //
 
-nan::Position createPosition() {
-    std::string mordor = "Mordor";
-    nan::Position result(mordor, 47, 11);
-    return result;
-}
+
 
 void testCtor() {
-    auto position = createPosition();
+    std::string mordor = "Mordor";
+    nan::Position position(mordor, 47, 11);
     assert(position.getName() == "Mordor");
     assert(position.getX() == 47);
     assert(position.getY() == 11);

@@ -56,6 +56,7 @@ int nan::City::findAndCountPOI(const std::string &poi) const {
     return count;
 }
 
+
 bool nan::City::removePOI(const std::string &poi) {
     int number_of_occurrences = findAndCountPOI(poi);
     if (number_of_occurrences == 0) { return false; }
@@ -71,4 +72,17 @@ bool nan::City::removePOI(const std::string &poi) {
     m_pois = new_pois;
     m_number_of_pois -= number_of_occurrences;
     return true;
+}
+
+std::string nan::City::printPOIS(const nan::City &city) {
+    std::string result;
+    for (int i = 0; i < city.getNumberOfPOIs(); i++) {
+        result += city.getPOI(i) + "\n";
+    }
+    return result;
+}
+
+std::ostream & nan::operator<<(std::ostream &os, const City &city) {
+    os << city.m_position << nan::City::printPOIS(city) << std::endl;
+    return os;
 }
