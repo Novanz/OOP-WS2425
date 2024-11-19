@@ -14,8 +14,7 @@ namespace nan {
         static void sortPositions(Position* positions, int size) {
             for (int i = 0; i < size; i++) {
                 for (int j = i + 1; j < size; j++) {
-                    if (positions[i].getX() > positions[j].getX() ||
-                        (positions[i].getX() == positions[j].getX() && positions[i].getY() > positions[j].getY())) {
+                    if (positions[i] > positions[j]) {
                         Position temp = positions[i];
                         positions[i] = positions[j];
                         positions[j] = temp;
