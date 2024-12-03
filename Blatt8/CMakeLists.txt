@@ -13,7 +13,8 @@ add_executable(Blatt8 src/Position.cpp src/Position.h
         #test/City_test.cpp
         src/PositionSorter.h
         #test/Position_test.cpp
-        test/ToString_test.cpp
+        test/Blatt8_City_test.cpp
+#        test/ToString_test.cpp
 )
 
 # GTest

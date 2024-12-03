@@ -7,7 +7,6 @@
 #include <stdexcept>
 #include <string>
 
-
 nan::City::City(const nan::Position &mPosition, std::string *mPOIs, int mNumberOfPOIs)
     : m_position(mPosition), m_number_of_pois(mNumberOfPOIs), m_pois(make_copy(mPOIs, mNumberOfPOIs)) {}
 
@@ -76,9 +75,31 @@ bool nan::City::removePOI(const std::string &poi) {
 
 std::ostream &nan::operator<<(std::ostream &os, const City &city) {
     os << city.m_position;
-        for (int i = 0; i < city.getNumberOfPOIs(); i++) {
-            os <<(city.getPOI(i)) << std::endl;
-        }
+    for (int i = 0; i < city.getNumberOfPOIs(); i++) { os << (city.getPOI(i)) << std::endl; }
     os << std::endl;
     return os;
+}
+
+const std::string &nan::City::operator[](int index) const {
+    isValidIndex(index);
+    return m_pois[index];
+}
+
+std::string &nan::City::operator[](int index) {
+    isValidIndex(index);
+    return m_pois[index];
+}
+// See: Operators(p.50)
+nan::City &nan::City::operator=(const City &other) {
+    if (this == &other) { return *this; }
+    m_position = other.m_position;
+    m_number_of_pois = other.m_number_of_pois;
+    // To avoid issue of working with same array -> deep copy
+    auto new_pois = new std::string[m_number_of_pois];
+    for (int i = 0; i < m_number_of_pois; i++) {
+        new_pois[i] = other.getPOI(i);
+    }
+    delete[] m_pois;
+    m_pois = new_pois;
+    return *this;
 }

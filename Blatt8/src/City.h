@@ -29,6 +29,9 @@ namespace nan {
 
         City(const Position &mPosition, std::string *mPOIs, int mNumberOfPOIs);
 
+        const std::string &getPOI(int i) const;
+        void setPOI(int i, const std::string &poi);
+
     public:
         City(const std::string &name, int x, int y, std::string *pois = nullptr, int length = 0);
         City(const nan::City &other);
@@ -36,16 +39,16 @@ namespace nan {
         const std::string &getName() const;
         int getX() const;
         int getY() const;
-        // jede Stadt hat Sehenswürdigkeiten (Points of Interest), auf die man zugreifen kann
-        const std::string &getPOI(int i) const;
-        // jede Stadt hat Sehenswürdigkeiten (Points of Interest), die man ändern kann
-        void setPOI(int i, const std::string &poi);
-        // es gibt je Stadt eine bestimmte Zahl an Sehenswürdigkeiten.
         int getNumberOfPOIs() const;
         void isValidIndex(int i) const;
         void addPOI(const std::string &poi);
         bool removePOI(const std::string &poi);
         friend std::ostream &operator<<(std::ostream &os, const City &city);
+        // Important to implement const and non-const version of operator[] to handle const and non-const objects
+        const std::string &operator[](int index) const;
+        std::string &operator[](int index);
+        // As we already provide copyctor and dtor, we should also provide copy assignment operator
+        City &operator=(const City &other);
     };
 
 }// namespace nan
