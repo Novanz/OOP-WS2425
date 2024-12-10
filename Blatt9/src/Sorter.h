@@ -8,18 +8,36 @@
 #ifndef POSITIONSORTER_H
 #define POSITIONSORTER_H
 
+#include <cctype>
+
 
 namespace nan {
     template<typename T>
     class Sorter {
     public:
-        static void sort(T *elements, int size) {
+        static void sort(T *arrayToSort, int size) {
             for (int i = 0; i < size; i++) {
                 for (int j = i + 1; j < size; j++) {
-                    if (elements[i] > elements[j]) {
-                        T temp = elements[i];
-                        elements[i] = elements[j];
-                        elements[j] = temp;
+                    if (arrayToSort[i] > arrayToSort[j]) {
+                        T elementToSwap = arrayToSort[i];
+                        arrayToSort[i] = arrayToSort[j];
+                        arrayToSort[j] = elementToSwap;
+                    }
+                }
+            }
+        }
+    };
+   // Specialization for char
+    template<>
+    class Sorter<char> {
+    public:
+        static void sort(char *arrayToSort, int size) {
+            for (int i = 0; i < size; i++) {
+                for (int j = i + 1; j < size; j++) {
+                    if (tolower(arrayToSort[i]) > tolower(arrayToSort[j])) {
+                        char elementToSwap = arrayToSort[i];
+                        arrayToSort[i] = arrayToSort[j];
+                        arrayToSort[j] = elementToSwap;
                     }
                 }
             }
