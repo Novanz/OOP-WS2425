@@ -1,5 +1,5 @@
 //
-// Created by nan on 10/15/24.
+// Created by novan on 10/15/24.
 //
 
 #ifndef BLATT2_POSITION_H
@@ -9,7 +9,7 @@
 #include <compare>
 #include <ostream>
 
-namespace nan {
+namespace novan {
     class Position {
     private:
         std::string m_name;

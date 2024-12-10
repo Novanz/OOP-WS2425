@@ -4,15 +4,15 @@ project(Blatt9)
 set(CMAKE_CXX_STANDARD 20)
 
 #set(GCC_COVERAGE_COMPILE_FLAGS "-lgtest -lgtest_main -pthread")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wextra")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wextra -std=c++20")
 
 # Main
 add_executable(Blatt9 src/Position.cpp src/Position.h
         src/City.cpp
         src/City.h
         src/Sorter.h
-        test/B9_City_test.cpp
-        #test/Sorter_test.cpp
+        #        test/B9_City_test.cpp
+        test/Sorter_test.cpp
 )
 
 # GTest

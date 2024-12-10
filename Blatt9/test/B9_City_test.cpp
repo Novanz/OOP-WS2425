@@ -1,21 +1,21 @@
 //
-// Created by nan on 10.12.24.
+// Created by novan on 10.12.24.
 //
 #include <iostream>
 #include "../src/Position.h"
 #include "../src/City.h"
 #include <cassert>
 
-nan::Position createPosition() {
+novan::Position createPosition() {
     std::string mordor = "Mordor";
-    nan::Position result(mordor, 47, 11);
+    novan::Position result(mordor, 47, 11);
     return result;
 }
 
-nan::City createCity() {
+novan::City createCity() {
     auto position = createPosition();
     std::string pois[] = {"Sauron", "Minas Morgul", "Orodruin"};
-    nan::City result("Mordor", 47, 11, pois, 3);
+    novan::City result("Mordor", 47, 11, pois, 3);
     return result;
 }
 
@@ -58,9 +58,9 @@ void testIndexOperator() {
 
 void testCityTemplate() {
     std::string pois_morder[]={"Sauron", "Minas Morgul", "Orodruin"};
-    nan::City left("Mordor", 47, 11,pois_morder,3);
+    novan::City left("Mordor", 47, 11,pois_morder,3);
     std::string pois_arrakis[]={"Arrakeen", "Desert"};
-    nan::City right("Arrakis", 23, 42,pois_arrakis,2);
+    novan::City right("Arrakis", 23, 42,pois_arrakis,2);
     std::cout << "Left: " << left << std::endl;
     left=right;
     std::cout << " New Left: " << left << std::endl;

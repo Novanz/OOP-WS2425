@@ -1,5 +1,5 @@
 //
-// Created by nan on 10/29/24.
+// Created by novan on 10/29/24.
 //
 
 #ifndef BLATT3_CITY_H
@@ -11,11 +11,11 @@
 #include <stdexcept>
 #include <ostream>
 
-namespace nan {
+namespace novan {
 
     class City {
     private:
-        nan::Position m_position;
+        novan::Position m_position;
         int m_number_of_pois;
         std::unique_ptr<std::string[]> m_pois;
 
@@ -36,7 +36,7 @@ namespace nan {
 
     public:
         City(const std::string &name, int x, int y, std::string *pois = nullptr, int length = 0);
-        City(const nan::City &other);
+        City(const novan::City &other);
         const std::string &getName() const;
         int getX() const;
         int getY() const;
@@ -44,6 +44,7 @@ namespace nan {
         void isValidIndex(int i) const;
         void addPOI(const std::string &poi);
         bool removePOI(const std::string &poi);
+        // TODO: Ask if it should be friend in cpp as well
         friend std::ostream &operator<<(std::ostream &os, const City &city);
         // Important to implement const and non-const version of operator[] to handle const and non-const objects
         const std::string &operator[](int index) const;
@@ -52,6 +53,6 @@ namespace nan {
         City &operator=(const City &other);
     };
 
-}// namespace nan
+}// namespace novan
 
 #endif//BLATT3_CITY_H
