@@ -14,12 +14,7 @@ nan::City::City(const std::string &name, int x, int y, std::string *pois, int le
     : City(Position(name, x, y), pois, length) {}
 
 nan::City::City(const nan::City &other)
-    : City(other.m_position, other.m_pois, other.m_number_of_pois) {}
-
-nan::City::~City() {
-    delete[] m_pois;
-    m_pois = nullptr;
-}
+    : City(other.m_position, other.m_pois.get(), other.m_number_of_pois) {}
 
 const std::string &nan::City::getName() const { return m_position.getName(); }
 int nan::City::getX() const { return m_position.getX(); }
@@ -40,12 +35,10 @@ void nan::City::setPOI(int i, const std::string &poi) {
 int nan::City::getNumberOfPOIs() const { return m_number_of_pois; }
 
 void nan::City::addPOI(const std::string &poi) {
-    auto *new_pois = new std::string[m_number_of_pois + 1];
+    auto new_pois = std::make_unique<std::string[]>(m_number_of_pois + 1);
     for (int i = 0; i < m_number_of_pois; i++) { new_pois[i] = m_pois[i]; }
     new_pois[m_number_of_pois] = poi;
-    delete[] m_pois;
-    // TODO: Frage: muss ich m_pois auf nullptr setzen? oder reicht hier delete[] m_pois da wir es ja gleich neu initialisieren?
-    m_pois = new_pois;
+    m_pois = std::move(new_pois);
     m_number_of_pois++;
 }
 
@@ -59,7 +52,7 @@ int nan::City::findAndCountPOI(const std::string &poi) const {
 bool nan::City::removePOI(const std::string &poi) {
     int number_of_occurrences = findAndCountPOI(poi);
     if (number_of_occurrences == 0) { return false; }
-    auto *new_pois = new std::string[m_number_of_pois - number_of_occurrences];
+    auto new_pois = std::make_unique<std::string[]>(m_number_of_pois - number_of_occurrences);
     int j = 0;
     for (int i = 0; i < m_number_of_pois; i++) {
         if (m_pois[i] != poi) {
@@ -67,8 +60,7 @@ bool nan::City::removePOI(const std::string &poi) {
             j++;
         }
     }
-    delete[] m_pois;
-    m_pois = new_pois;
+    m_pois = std::move(new_pois);
     m_number_of_pois -= number_of_occurrences;
     return true;
 }
@@ -95,11 +87,10 @@ nan::City &nan::City::operator=(const City &other) {
     m_position = other.m_position;
     m_number_of_pois = other.m_number_of_pois;
     // To avoid issue of working with same array -> deep copy
-    auto new_pois = new std::string[m_number_of_pois];
+    auto new_pois = std::make_unique<std::string[]>(m_number_of_pois);
     for (int i = 0; i < m_number_of_pois; i++) {
         new_pois[i] = other.getPOI(i);
     }
-    delete[] m_pois;
-    m_pois = new_pois;
+    m_pois = std::move(new_pois);
     return *this;
 }

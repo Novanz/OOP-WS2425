@@ -6,6 +6,8 @@
 #define BLATT3_CITY_H
 
 #include "Position.h"
+
+#include <memory>
 #include <stdexcept>
 #include <ostream>
 
@@ -15,11 +17,11 @@ namespace nan {
     private:
         nan::Position m_position;
         int m_number_of_pois;
-        std::string *m_pois;
+        std::unique_ptr<std::string[]> m_pois;
 
-        static std::string *make_copy(const std::string *source_array, int size) {
+        static std::unique_ptr<std::string[]> make_copy(const std::string *source_array, int size) {
             if (source_array == nullptr && size != 0) { throw std::invalid_argument("Size of nullptr array is not 0"); }
-            auto *result = new std::string[size];
+            auto result = std::make_unique<std::string[]>(size);
             for (int i = 0; i < size; i++) { result[i] = source_array[i]; }
             return result;
         }
@@ -35,7 +37,6 @@ namespace nan {
     public:
         City(const std::string &name, int x, int y, std::string *pois = nullptr, int length = 0);
         City(const nan::City &other);
-        ~City();
         const std::string &getName() const;
         int getX() const;
         int getY() const;
