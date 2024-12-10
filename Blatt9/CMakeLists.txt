@@ -11,9 +11,10 @@ add_executable(Blatt9 src/Position.cpp src/Position.h
         src/City.cpp
         src/City.h
         #test/City_test.cpp
-        src/PositionSorter.h
-        #test/Position_test.cpp
-        test/Blatt8_City_test.cpp
+        src/Sorter.h
+#        test/Position_test.cpp
+        test/Sorter_test.cpp
+#        test/Blatt8_City_test.cpp
 #        test/ToString_test.cpp
 )
 
