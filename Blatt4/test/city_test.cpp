@@ -2,9 +2,8 @@
 // Created by nan on 10/29/24.
 //
 
-#include "../src/Position.h"
-#include "../src/city.h"
 #include <cassert>
+#include "/home/nan/CLionProjects/OOP/Blatt4/src/city.h"
 #include <iostream>
 #include <string>
 

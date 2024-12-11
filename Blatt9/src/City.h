@@ -44,7 +44,6 @@ namespace novan {
         void isValidIndex(int i) const;
         void addPOI(const std::string &poi);
         bool removePOI(const std::string &poi);
-        // TODO: Ask if it should be friend in cpp as well
         friend std::ostream &operator<<(std::ostream &os, const City &city);
         // Important to implement const and non-const version of operator[] to handle const and non-const objects
         const std::string &operator[](int index) const;

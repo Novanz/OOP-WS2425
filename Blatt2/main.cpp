@@ -43,10 +43,10 @@ namespace nan {
 
     void runTestsDecode() {
         std::string lines[] = {
-                "1abc2",
-                "pqr3stu8vwx",
-                "a1b2c3d4e5f",
-                "treb7uchet"};
+            "1abc2",
+            "pqr3stu8vwx",
+            "a1b2c3d4e5f",
+            "treb7uchet"};
         int expected[]{12, 38, 15, 77};
         for (int i = 0; i < 4; ++i) {
             assert(decode(lines[i]) == expected[i]);
@@ -59,10 +59,9 @@ namespace nan {
         }
         std::cout << "All decode() tests passed successfully!" << std::endl;
     }
-
+}
     int main() {
-        runTestsToInt();
-        runTestsDecode();
+        nan::runTestsToInt();
+        nan::runTestsDecode();
         return 0;
     }
-}
